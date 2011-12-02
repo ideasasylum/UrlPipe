@@ -33,7 +33,7 @@ var dropbox = dbox.createClient({
 });
 
 
-app.get('/start', function(req, res) {
+app.get('/', function(req, res) {
   dropbox.request_token(function(status, reply){
     console.log("Request token callback");
     console.log(status);
@@ -41,7 +41,7 @@ app.get('/start', function(req, res) {
     req.session.oauth_token = reply.oauth_token;
     req.session.oauth_token_secret = reply.oauth_token_secret;
     // do authorisation
-    res.redirect("https://www.dropbox.com/1/oauth/authorize?oauth_token="+reply.oauth_token+"&oauth_callback=http://localhost:3000/oauth_callback");
+    res.redirect("https://www.dropbox.com/1/oauth/authorize?oauth_token="+reply.oauth_token+"&oauth_callback=http://urlpipe.heroku.com/oauth_callback");
   });
 });
 
