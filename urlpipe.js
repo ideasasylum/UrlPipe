@@ -17,6 +17,7 @@ var request = require('request');
 var express = require('express');
 var app = express.createServer();
 var fs = require('fs');
+var url = require('url');
 
 // Create and configure an Express server.
 app.configure(function () {
@@ -82,8 +83,11 @@ app.post('/upload', function(req, res){
 
   console.log(req);
   if(options){
+    var path = url.parse(req.body.url).pathname;
+    var elements = path.split('/');
+    var filename = elements[elements.length-1];
     // download the file (and follow redirects?) and pipe to dropbox
-    request({url: req.body.url}).pipe(dropbox.put_request('/test2.png', options, function(status, reply){
+    request({url: req.body.url}).pipe(dropbox.put_request('/'+filename, options, function(status, reply){
         console.log(status);
         console.log(reply);
         res.redirect('/upload');
