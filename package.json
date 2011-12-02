@@ -1,11 +1,11 @@
 { 
 	"name": "UrlPipe",
-	"version": "0.1",
+	"version": "0.0.1",
 	"dependencies": {
-		"express": 	">=2.5.1",
-		"request": 	">=2.2.1",
-		"ejs": 		">=0.5.0",
-		"https://hopeless@github.com/hopeless/node-dbox.git": 	">=0.1.0"
+		"express": 	">= 2.5.1",
+		"request": 	">= 2.2.1",
+		"ejs": 		">= 0.5.0",
+		"node-dbox": "https://github.com/hopeless/node-dbox/tarball/master"
 	},
-	"engine": "node >= 0.6.3"
+	"engine": "node >= 0.6.2"
 }

@@ -109,15 +109,5 @@ function get_access_token(req, res){
   }
 }
 
-/** TODO: patch dbox.js with this */
-function put_request(path, options, cb){
-  var params = sign(options)
-  var args = {
-    "method": "PUT",
-    "url": "https://api-content.dropbox.com/1/files_put/" + (params.root || root) + "/" + qs.escape(path) + "?" + qs.stringify(params),
-  }
-  return request(args, cb);
-},
-
 app.listen(3000);
 console.log('Dropbox browser running on port ' + app.address().port);
