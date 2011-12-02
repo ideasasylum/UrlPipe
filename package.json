@@ -1,0 +1,11 @@
+{ 
+	"name": "UrlPipe",
+	"version": "0.1",
+	"dependencies": {
+		"express": 	">=2.5.1",
+		"request": 	">=2.2.1",
+		"jade": 	">=0.18.0",
+		"dbox": 	">=0.1.0"
+	},
+	"engine": "node >= 0.6.3"
+}
