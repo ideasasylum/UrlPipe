@@ -3,7 +3,7 @@ var app_key = process.argv[2]
   , app_secret = process.argv[3];
 
 if (app_key == undefined || app_secret == undefined) {
-  console.log("Usage: node app.js <dropbox key> <dropbox secret>");
+  console.log("Usage: node urlpipe.js <dropbox key> <dropbox secret>");
   process.exit(1);
 }
 
@@ -63,9 +63,9 @@ app.get('/upload', function(req, res){
       console.log("Account callback");
       console.log(status);
       console.log(reply);
-      res.render('upload_form.jade', {
+      res.render('upload_form.ejs', {
         locals: {
-          title: 'Upload this file to '+reply.display_name+' dropbox'
+          name: reply.display_name
         }
       });
     });
