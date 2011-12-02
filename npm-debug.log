@@ -1,0 +1,876 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/bin/npm', 'update' ]
+info using npm@1.0.106
+info using node@v0.6.2
+verbose /usr/bin/node node symlink
+verbose config file /home/jamie/.npmrc
+verbose config file /usr/etc/npmrc
+verbose config file /usr/lib/node_modules/npm/npmrc
+silly testEngine { name: 'UrlPipe',
+silly testEngine   version: '0.0.1',
+silly testEngine   dependencies: 
+silly testEngine    { express: '>= 2.5.1',
+silly testEngine      request: '>= 2.2.1',
+silly testEngine      ejs: '>= 0.5.0',
+silly testEngine      'node-dbox': 'https://github.com/hopeless/node-dbox/tarball/master' },
+silly testEngine   engine: 'node >= 0.4.7',
+silly testEngine   _id: 'UrlPipe@0.0.1',
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/package.json
+verbose loadDefaults UrlPipe@0.0.1
+silly testEngine { name: 'ejs',
+silly testEngine   description: 'Embedded JavaScript templates',
+silly testEngine   version: '0.5.0',
+silly testEngine   author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly testEngine   keywords: [ 'template', 'engine', 'ejs' ],
+silly testEngine   devDependencies: { expresso: '0.9.2' },
+silly testEngine   main: './lib/ejs.js',
+silly testEngine   _id: 'ejs@0.5.0',
+silly testEngine   dependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/ejs/package.json
+verbose loadDefaults ejs@0.5.0
+silly testEngine { name: 'dbox',
+silly testEngine   description: 'NodeJS SDK for the Dropbox API',
+silly testEngine   version: '0.1.0',
+silly testEngine   author: { name: 'Brock Whitten', email: 'brock@sintaxi.com' },
+silly testEngine   keywords: [ 'dropbox', 'sdk', 's3' ],
+silly testEngine   main: './dbox.js',
+silly testEngine   repository: { type: 'git', url: 'git://github.com/sintaxi/node-dbox.git' },
+silly testEngine   dependencies: { request: '2.1.1' },
+silly testEngine   engines: { node: '*' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'https://raw.github.com/sintaxi/node-dbox/master/README.md' } ],
+silly testEngine   _id: 'dbox@0.1.0',
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/dbox/package.json
+verbose loadDefaults dbox@0.1.0
+silly testEngine { name: 'express',
+silly testEngine   description: 'Sinatra inspired web development framework',
+silly testEngine   version: '2.5.1',
+silly testEngine   author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly testEngine      { name: 'Aaron Heckmann',
+silly testEngine        email: 'aaron.heckmann+github@gmail.com' },
+silly testEngine      { name: 'Ciaran Jessup', email: 'ciaranj@gmail.com' },
+silly testEngine      { name: 'Guillermo Rauch', email: 'rauchg@gmail.com' } ],
+silly testEngine   dependencies: 
+silly testEngine    { connect: '1.8.x',
+silly testEngine      mime: '>= 0.0.1',
+silly testEngine      qs: '>= 0.3.1',
+silly testEngine      mkdirp: '0.0.7' },
+silly testEngine   devDependencies: 
+silly testEngine    { 'connect-form': '0.2.1',
+silly testEngine      ejs: '0.4.2',
+silly testEngine      expresso: '0.9.2',
+silly testEngine      hamljs: '0.5.1',
+silly testEngine      jade: '0.16.2',
+silly testEngine      stylus: '0.13.0',
+silly testEngine      should: '0.3.2',
+silly testEngine      'express-messages': '0.0.2',
+silly testEngine      'node-markdown': '>= 0.0.1',
+silly testEngine      'connect-redis': '>= 0.0.1' },
+silly testEngine   keywords: [ 'framework', 'sinatra', 'web', 'rest', 'restful' ],
+silly testEngine   repository: { type: 'git', url: 'git://github.com/visionmedia/express.git' },
+silly testEngine   main: 'index',
+silly testEngine   bin: { express: './bin/express' },
+silly testEngine   scripts: { test: 'make test', prepublish: 'npm prune' },
+silly testEngine   engines: { node: '>= 0.4.1 < 0.7.0' },
+silly testEngine   _id: 'express@2.5.1',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/express/package.json
+verbose loadDefaults express@2.5.1
+silly testEngine { name: 'request',
+silly testEngine   description: 'Simplified HTTP request client.',
+silly testEngine   tags: [ 'http', 'simple', 'util', 'utility' ],
+silly testEngine   version: '2.2.9',
+silly testEngine   author: { name: 'Mikeal Rogers', email: 'mikeal.rogers@gmail.com' },
+silly testEngine   repository: { type: 'git', url: 'git://github.com/mikeal/request.git' },
+silly testEngine   bugs: { url: 'http://github.com/mikeal/request/issues' },
+silly testEngine   engines: [ 'node >= 0.3.6', node: ' >= 0.3.6' ],
+silly testEngine   main: './main',
+silly testEngine   scripts: { test: 'bash tests/run.sh' },
+silly testEngine   _id: 'request@2.2.9',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/request/package.json
+verbose loadDefaults request@2.2.9
+verbose cache add [ 'express', '>= 2.5.1' ]
+silly cache add: name, spec, args [ 'express', '>= 2.5.1', [ 'express', '>= 2.5.1' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+info addNamed [ 'express', '>= 2.5.1' ]
+verbose addNamed [ null, '>=2.5.1' ]
+verbose cache add [ 'request', '>= 2.2.1' ]
+silly cache add: name, spec, args [ 'request', '>= 2.2.1', [ 'request', '>= 2.2.1' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+info addNamed [ 'request', '>= 2.2.1' ]
+verbose addNamed [ null, '>=2.2.1' ]
+verbose cache add [ 'ejs', '>= 0.5.0' ]
+silly cache add: name, spec, args [ 'ejs', '>= 0.5.0', [ 'ejs', '>= 0.5.0' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+info addNamed [ 'ejs', '>= 0.5.0' ]
+verbose addNamed [ null, '>=0.5.0' ]
+verbose cache add [ 'node-dbox',
+verbose cache add   'https://github.com/hopeless/node-dbox/tarball/master' ]
+silly cache add: name, spec, args [ 'node-dbox',
+silly cache add: name, spec, args   'https://github.com/hopeless/node-dbox/tarball/master',
+silly cache add: name, spec, args   [ 'node-dbox',
+silly cache add: name, spec, args     'https://github.com/hopeless/node-dbox/tarball/master' ] ]
+verbose parsed url { protocol: 'https:',
+verbose parsed url   slashes: true,
+verbose parsed url   host: 'github.com',
+verbose parsed url   hostname: 'github.com',
+verbose parsed url   href: 'https://github.com/hopeless/node-dbox/tarball/master',
+verbose parsed url   pathname: '/hopeless/node-dbox/tarball/master',
+verbose parsed url   path: '/hopeless/node-dbox/tarball/master' }
+verbose addRemoteTarball [ 'https://github.com/hopeless/node-dbox/tarball/master', null ]
+verbose GET ejs
+verbose raw, before any munging ejs
+verbose url resolving [ 'https://registry.npmjs.org/', './ejs' ]
+verbose url resolved https://registry.npmjs.org/ejs
+verbose etag "6PNHFIEY5NUD4BIMY5AE8QEHU"
+verbose mkdir (expected) error ENOENT, no such file or directory '/tmp/npm-1322860846716'
+verbose mkdir (expected) error ENOENT, no such file or directory '/tmp/npm-1322860846716/1322860846716-0.7092915980610996'
+verbose mkdir done: /tmp/npm-1322860846716/1322860846716-0.7092915980610996 755
+info fetch https://github.com/hopeless/node-dbox/tarball/master
+verbose fetch to /tmp/npm-1322860846716/1322860846716-0.7092915980610996/tmp.tgz
+verbose GET request
+verbose raw, before any munging request
+verbose url resolving [ 'https://registry.npmjs.org/', './request' ]
+verbose url resolved https://registry.npmjs.org/request
+verbose etag "2U2NVZ49C55M3OYF1ES0VO03X"
+verbose GET express
+verbose raw, before any munging express
+verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+verbose url resolved https://registry.npmjs.org/express
+verbose etag "8PZ9XTRNICPI3GWGPO5SZLY9K"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"6PNHFIEY5NUD4BIMY5AE8QEHU"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:47 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag ejs from cache
+verbose GET ejs/0.5.0
+verbose raw, before any munging ejs/0.5.0
+verbose url resolving [ 'https://registry.npmjs.org/', './ejs/0.5.0' ]
+verbose url resolved https://registry.npmjs.org/ejs/0.5.0
+verbose etag "6PNHFIEY5NUD4BIMY5AE8QEHU"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"8PZ9XTRNICPI3GWGPO5SZLY9K"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:48 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag express from cache
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"2U2NVZ49C55M3OYF1ES0VO03X"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:48 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag request from cache
+verbose GET express/2.5.1
+verbose raw, before any munging express/2.5.1
+verbose url resolving [ 'https://registry.npmjs.org/', './express/2.5.1' ]
+verbose url resolved https://registry.npmjs.org/express/2.5.1
+verbose etag "8PZ9XTRNICPI3GWGPO5SZLY9K"
+verbose GET request/2.2.9
+verbose raw, before any munging request/2.2.9
+verbose url resolving [ 'https://registry.npmjs.org/', './request/2.2.9' ]
+verbose url resolved https://registry.npmjs.org/request/2.2.9
+verbose etag "2U2NVZ49C55M3OYF1ES0VO03X"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"6PNHFIEY5NUD4BIMY5AE8QEHU"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:49 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag ejs/0.5.0 from cache
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: 'd6f8e7d3baad096383df59c3a2407bd942cf08e8',
+verbose bin dist     tarball: 'http://registry.npmjs.org/ejs/-/ejs-0.5.0.tgz' } ]
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"8PZ9XTRNICPI3GWGPO5SZLY9K"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:49 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag express/2.5.1 from cache
+silly testEngine { name: 'ejs',
+silly testEngine   description: 'Embedded JavaScript templates',
+silly testEngine   version: '0.5.0',
+silly testEngine   author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly testEngine   keywords: [ 'template', 'engine', 'ejs' ],
+silly testEngine   devDependencies: { expresso: '0.9.2' },
+silly testEngine   main: './lib/ejs.js',
+silly testEngine   _id: 'ejs@0.5.0',
+silly testEngine   dependencies: {},
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/.npm/ejs/0.5.0/package/package.json
+verbose loadDefaults ejs@0.5.0
+verbose from cache /home/jamie/UrlPipe/node_modules/ejs/package.json
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: '0644284c2c219264e2955fe94717ce7b462cd5d6',
+verbose bin dist     tarball: 'http://registry.npmjs.org/express/-/express-2.5.1.tgz' } ]
+silly testEngine { name: 'express',
+silly testEngine   description: 'Sinatra inspired web development framework',
+silly testEngine   version: '2.5.1',
+silly testEngine   author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+silly testEngine      { name: 'Aaron Heckmann',
+silly testEngine        email: 'aaron.heckmann+github@gmail.com' },
+silly testEngine      { name: 'Ciaran Jessup', email: 'ciaranj@gmail.com' },
+silly testEngine      { name: 'Guillermo Rauch', email: 'rauchg@gmail.com' } ],
+silly testEngine   dependencies: 
+silly testEngine    { connect: '1.8.x',
+silly testEngine      mime: '>= 0.0.1',
+silly testEngine      qs: '>= 0.3.1',
+silly testEngine      mkdirp: '0.0.7' },
+silly testEngine   devDependencies: 
+silly testEngine    { 'connect-form': '0.2.1',
+silly testEngine      ejs: '0.4.2',
+silly testEngine      expresso: '0.9.2',
+silly testEngine      hamljs: '0.5.1',
+silly testEngine      jade: '0.16.2',
+silly testEngine      stylus: '0.13.0',
+silly testEngine      should: '0.3.2',
+silly testEngine      'express-messages': '0.0.2',
+silly testEngine      'node-markdown': '>= 0.0.1',
+silly testEngine      'connect-redis': '>= 0.0.1' },
+silly testEngine   keywords: [ 'framework', 'sinatra', 'web', 'rest', 'restful' ],
+silly testEngine   repository: { type: 'git', url: 'git://github.com/visionmedia/express.git' },
+silly testEngine   main: 'index',
+silly testEngine   bin: { express: './bin/express' },
+silly testEngine   scripts: { test: 'make test', prepublish: 'npm prune' },
+silly testEngine   engines: { node: '>= 0.4.1 < 0.7.0' },
+silly testEngine   _id: 'express@2.5.1',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/.npm/express/2.5.1/package/package.json
+verbose loadDefaults express@2.5.1
+verbose from cache /home/jamie/UrlPipe/node_modules/express/package.json
+silly testEngine { author: 
+silly testEngine    { name: 'Robert Kieffer',
+silly testEngine      email: 'robert@broofa.com',
+silly testEngine      url: 'http://github.com/broofa' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Benjamin Thomas',
+silly testEngine        email: 'benjamin@benjaminthomas.org',
+silly testEngine        url: 'http://github.com/bentomas' } ],
+silly testEngine   dependencies: {},
+silly testEngine   description: 'A comprehensive library for mime-type mapping',
+silly testEngine   devDependencies: { async_testing: '' },
+silly testEngine   keywords: [ 'util', 'mime' ],
+silly testEngine   main: 'mime.js',
+silly testEngine   name: 'mime',
+silly testEngine   repository: { url: 'git://github.com/bentomas/node-mime.git', type: 'git' },
+silly testEngine   version: '1.2.4',
+silly testEngine   _id: 'mime@1.2.4',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/express/node_modules/mime/package.json
+verbose loadDefaults mime@1.2.4
+silly testEngine { name: 'mkdirp',
+silly testEngine   description: 'Recursively mkdir, like `mkdir -p`',
+silly testEngine   version: '0.0.7',
+silly testEngine   author: 
+silly testEngine    { name: 'James Halliday',
+silly testEngine      email: 'mail@substack.net',
+silly testEngine      url: 'http://substack.net' },
+silly testEngine   main: './index',
+silly testEngine   keywords: [ 'mkdir', 'directory' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/substack/node-mkdirp.git' },
+silly testEngine   scripts: { test: 'node node_modules/tap/bin/tap.js test/*.js' },
+silly testEngine   devDependencies: { tap: '0.0.x' },
+silly testEngine   license: 'MIT/X11',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _id: 'mkdirp@0.0.7',
+silly testEngine   dependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/express/node_modules/mkdirp/package.json
+verbose loadDefaults mkdirp@0.0.7
+silly testEngine { name: 'connect',
+silly testEngine   version: '1.8.1',
+silly testEngine   description: 'High performance middleware framework',
+silly testEngine   keywords: [ 'framework', 'web', 'middleware', 'connect', 'rack' ],
+silly testEngine   repository: { type: 'git', url: 'git://github.com/senchalabs/connect.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca',
+silly testEngine      url: 'http://tjholowaychuk.com' },
+silly testEngine   dependencies: { qs: '>= 0.3.1', mime: '>= 0.0.1', formidable: '1.0.x' },
+silly testEngine   devDependencies: 
+silly testEngine    { expresso: '0.9.2',
+silly testEngine      koala: '0.1.2',
+silly testEngine      less: '1.1.1',
+silly testEngine      sass: '0.5.0',
+silly testEngine      markdown: '0.2.1',
+silly testEngine      ejs: '0.4.3',
+silly testEngine      should: '0.3.2' },
+silly testEngine   main: 'index',
+silly testEngine   engines: { node: '>= 0.4.1 < 0.7.0' },
+silly testEngine   _id: 'connect@1.8.1',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/express/node_modules/connect/package.json
+verbose loadDefaults connect@1.8.1
+silly testEngine { name: 'qs',
+silly testEngine   description: 'querystring parser',
+silly testEngine   version: '0.4.0',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/visionmedia/node-querystring.git' },
+silly testEngine   devDependencies: { mocha: '*', should: '*' },
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca',
+silly testEngine      url: 'http://tjholowaychuk.com' },
+silly testEngine   main: 'index',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _id: 'qs@0.4.0',
+silly testEngine   dependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/express/node_modules/qs/package.json
+verbose loadDefaults qs@0.4.0
+verbose cache add [ 'connect', '1.8.x' ]
+silly cache add: name, spec, args [ 'connect', '1.8.x', [ 'connect', '1.8.x' ] ]
+verbose parsed url { pathname: '1.8.x', path: '1.8.x', href: '1.8.x' }
+info addNamed [ 'connect', '1.8.x' ]
+verbose addNamed [ null, '>=1.8.0- <1.9.0-' ]
+verbose cache add [ 'mime', '>= 0.0.1' ]
+silly cache add: name, spec, args [ 'mime', '>= 0.0.1', [ 'mime', '>= 0.0.1' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+info addNamed [ 'mime', '>= 0.0.1' ]
+verbose addNamed [ null, '>=0.0.1' ]
+verbose cache add [ 'qs', '>= 0.3.1' ]
+silly cache add: name, spec, args [ 'qs', '>= 0.3.1', [ 'qs', '>= 0.3.1' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+info addNamed [ 'qs', '>= 0.3.1' ]
+verbose addNamed [ null, '>=0.3.1' ]
+verbose cache add [ 'mkdirp', '0.0.7' ]
+silly cache add: name, spec, args [ 'mkdirp', '0.0.7', [ 'mkdirp', '0.0.7' ] ]
+verbose parsed url { pathname: '0.0.7', path: '0.0.7', href: '0.0.7' }
+info addNamed [ 'mkdirp', '0.0.7' ]
+verbose addNamed [ '0.0.7', '0.0.7' ]
+verbose GET mime
+verbose raw, before any munging mime
+verbose url resolving [ 'https://registry.npmjs.org/', './mime' ]
+verbose url resolved https://registry.npmjs.org/mime
+verbose etag "7MZNZPESAB7VHU2OR75BCFXOM"
+verbose GET qs
+verbose raw, before any munging qs
+verbose url resolving [ 'https://registry.npmjs.org/', './qs' ]
+verbose url resolved https://registry.npmjs.org/qs
+verbose etag "4INX1EOLCQZ99P2EH2XT6E28C"
+verbose GET mkdirp/0.0.7
+verbose raw, before any munging mkdirp/0.0.7
+verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp/0.0.7' ]
+verbose url resolved https://registry.npmjs.org/mkdirp/0.0.7
+verbose etag "BWTJEWNZJDGUCT70ZBX9FPPPN"
+verbose GET connect
+verbose raw, before any munging connect
+verbose url resolving [ 'https://registry.npmjs.org/', './connect' ]
+verbose url resolved https://registry.npmjs.org/connect
+verbose etag "CCKIDR2RUFQN487NNGT446W36"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"2U2NVZ49C55M3OYF1ES0VO03X"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:49 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag request/2.2.9 from cache
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: 'efbf8afbfe7f1e200d483b99752b6c42b404a0f1',
+verbose bin dist     tarball: 'http://registry.npmjs.org/request/-/request-2.2.9.tgz' } ]
+silly testEngine { name: 'request',
+silly testEngine   description: 'Simplified HTTP request client.',
+silly testEngine   tags: [ 'http', 'simple', 'util', 'utility' ],
+silly testEngine   version: '2.2.9',
+silly testEngine   author: { name: 'Mikeal Rogers', email: 'mikeal.rogers@gmail.com' },
+silly testEngine   repository: { type: 'git', url: 'git://github.com/mikeal/request.git' },
+silly testEngine   bugs: { url: 'http://github.com/mikeal/request/issues' },
+silly testEngine   engines: [ 'node >= 0.3.6', node: ' >= 0.3.6' ],
+silly testEngine   main: './main',
+silly testEngine   scripts: { test: 'bash tests/run.sh' },
+silly testEngine   _id: 'request@2.2.9',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/.npm/request/2.2.9/package/package.json
+verbose loadDefaults request@2.2.9
+verbose from cache /home/jamie/UrlPipe/node_modules/request/package.json
+verbose mkdir (expected) error ENOENT, no such file or directory '/tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents'
+verbose mkdir (expected) error ENOENT, no such file or directory '/tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm'
+verbose mkdir done: /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/package
+silly gunzTarPerm modes [ '755', '644' ]
+silly spawning [ 'tar',
+silly spawning   [ '-zmvxpf',
+silly spawning     '/tmp/npm-1322860846716/1322860846716-0.7092915980610996/tmp.tgz' ],
+silly spawning   '/tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm' ]
+silly tar out hopeless-node-dbox-963e4da/
+silly tar out hopeless-node-dbox-963e4da/.gitignore
+silly tar out hopeless-node-dbox-963e4da/README.md
+silly tar out hopeless-node-dbox-963e4da/dbox.js
+silly tar out hopeless-node-dbox-963e4da/lib/
+silly tar out hopeless-node-dbox-963e4da/lib/oauth.js
+silly tar out hopeless-node-dbox-963e4da/package.json
+silly tar exit 0
+silly asyncMap in gTP /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da
+silly asyncMap in gTP /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da/README.md
+silly asyncMap in gTP /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da/.gitignore
+silly asyncMap in gTP /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da/dbox.js
+silly asyncMap in gTP /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da/package.json
+silly asyncMap in gTP /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da/lib
+silly asyncMap in gTP /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da/lib/oauth.js
+silly chmod hopeless-node-dbox-963e4da 755
+silly chmod README.md 644
+silly chmod .gitignore 644
+silly chmod dbox.js 644
+silly chmod package.json 644
+silly chmod lib 755
+silly chmod oauth.js 644
+verbose gunzed /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da
+verbose rm'ed /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/package
+verbose renamed [ '/tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/___package.npm/hopeless-node-dbox-963e4da',
+verbose renamed   '/tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/package' ]
+silly testEngine { name: 'dbox',
+silly testEngine   description: 'NodeJS SDK for the Dropbox API',
+silly testEngine   version: '0.1.0',
+silly testEngine   author: { name: 'Brock Whitten', email: 'brock@sintaxi.com' },
+silly testEngine   keywords: [ 'dropbox', 'sdk', 's3' ],
+silly testEngine   main: './dbox.js',
+silly testEngine   repository: { type: 'git', url: 'git://github.com/sintaxi/node-dbox.git' },
+silly testEngine   dependencies: { request: '2.1.1' },
+silly testEngine   engines: { node: '*' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'https://raw.github.com/sintaxi/node-dbox/master/README.md' } ],
+silly testEngine   _id: 'dbox@0.1.0',
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/package' }
+verbose caching /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/package/package.json
+verbose loadDefaults dbox@0.1.0
+verbose tarball contents [ 'package' ]
+verbose from cache /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/package/package.json
+verbose pack /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/package /home/jamie/.npm/dbox/0.1.0/package.tgz
+silly makeList /tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents/package
+verbose mkdir'ed /home/jamie/.npm/dbox/0.1.0
+verbose tar about to write tar and gzip it.
+silly tar args [ '-czvf', '-', '-T', '-' ]
+silly spawning [ 'tar',
+silly spawning   [ '-czvf', '-', '-T', '-' ],
+silly spawning   '/tmp/npm-1322860846716/1322860846716-0.7092915980610996/contents' ]
+verbose mkdir (expected) error ENOENT, no such file or directory '/home/jamie/.npm/dbox/0.1.0/___package.npm'
+verbose mkdir done: /home/jamie/.npm/dbox/0.1.0/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /home/jamie/.npm/dbox/0.1.0/package
+silly gunzTarPerm modes [ '755', '644' ]
+silly spawning [ 'tar',
+silly spawning   [ '-zmvxpf', '/home/jamie/.npm/dbox/0.1.0/package.tgz' ],
+silly spawning   '/home/jamie/.npm/dbox/0.1.0/___package.npm' ]
+silly tar out package/README.md
+silly tar out package/.gitignore
+silly tar out package/dbox.js
+silly tar out package/package.json
+silly tar out package/lib/oauth.js
+silly tar exit 0
+silly asyncMap in gTP /home/jamie/.npm/dbox/0.1.0/___package.npm/package
+silly asyncMap in gTP /home/jamie/.npm/dbox/0.1.0/___package.npm/package/README.md
+silly asyncMap in gTP /home/jamie/.npm/dbox/0.1.0/___package.npm/package/.gitignore
+silly asyncMap in gTP /home/jamie/.npm/dbox/0.1.0/___package.npm/package/dbox.js
+silly asyncMap in gTP /home/jamie/.npm/dbox/0.1.0/___package.npm/package/package.json
+silly asyncMap in gTP /home/jamie/.npm/dbox/0.1.0/___package.npm/package/lib
+silly asyncMap in gTP /home/jamie/.npm/dbox/0.1.0/___package.npm/package/lib/oauth.js
+verbose gunzed /home/jamie/.npm/dbox/0.1.0/___package.npm/package
+verbose rm'ed /home/jamie/.npm/dbox/0.1.0/package
+verbose renamed [ '/home/jamie/.npm/dbox/0.1.0/___package.npm/package',
+verbose renamed   '/home/jamie/.npm/dbox/0.1.0/package' ]
+silly testEngine { name: 'dbox',
+silly testEngine   description: 'NodeJS SDK for the Dropbox API',
+silly testEngine   version: '0.1.0',
+silly testEngine   author: { name: 'Brock Whitten', email: 'brock@sintaxi.com' },
+silly testEngine   keywords: [ 'dropbox', 'sdk', 's3' ],
+silly testEngine   main: './dbox.js',
+silly testEngine   repository: { type: 'git', url: 'git://github.com/sintaxi/node-dbox.git' },
+silly testEngine   dependencies: { request: '2.1.1' },
+silly testEngine   engines: { node: '*' },
+silly testEngine   licenses: 
+silly testEngine    [ { type: 'MIT',
+silly testEngine        url: 'https://raw.github.com/sintaxi/node-dbox/master/README.md' } ],
+silly testEngine   _id: 'dbox@0.1.0',
+silly testEngine   devDependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: { shasum: '235733c4e025c14b3c2160360b36084fd9ead146' } }
+verbose caching /home/jamie/.npm/dbox/0.1.0/package/package.json
+verbose loadDefaults dbox@0.1.0
+silly updated sha bytes 4816
+info shasum 235733c4e025c14b3c2160360b36084fd9ead146
+info shasum /home/jamie/.npm/dbox/0.1.0/package.tgz
+verbose from cache /home/jamie/.npm/dbox/0.1.0/package/package.json
+verbose chmod /home/jamie/.npm/dbox/0.1.0/package.tgz 644
+verbose chown [ '/home/jamie/.npm/dbox/0.1.0/package.tgz', 1000, 1000 ]
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"7MZNZPESAB7VHU2OR75BCFXOM"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:50 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag mime from cache
+verbose GET mime/1.2.4
+verbose raw, before any munging mime/1.2.4
+verbose url resolving [ 'https://registry.npmjs.org/', './mime/1.2.4' ]
+verbose url resolved https://registry.npmjs.org/mime/1.2.4
+verbose etag "7MZNZPESAB7VHU2OR75BCFXOM"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"BWTJEWNZJDGUCT70ZBX9FPPPN"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:51 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag mkdirp/0.0.7 from cache
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: 'd89b4f0e4c3e5e5ca54235931675e094fe1a5072',
+verbose bin dist     tarball: 'http://registry.npmjs.org/mkdirp/-/mkdirp-0.0.7.tgz' } ]
+silly testEngine { name: 'mkdirp',
+silly testEngine   description: 'Recursively mkdir, like `mkdir -p`',
+silly testEngine   version: '0.0.7',
+silly testEngine   author: 
+silly testEngine    { name: 'James Halliday',
+silly testEngine      email: 'mail@substack.net',
+silly testEngine      url: 'http://substack.net' },
+silly testEngine   main: './index',
+silly testEngine   keywords: [ 'mkdir', 'directory' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/substack/node-mkdirp.git' },
+silly testEngine   scripts: { test: 'node node_modules/tap/bin/tap.js test/*.js' },
+silly testEngine   devDependencies: { tap: '0.0.x' },
+silly testEngine   license: 'MIT/X11',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _id: 'mkdirp@0.0.7',
+silly testEngine   dependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/.npm/mkdirp/0.0.7/package/package.json
+verbose loadDefaults mkdirp@0.0.7
+verbose from cache /home/jamie/UrlPipe/node_modules/express/node_modules/mkdirp/package.json
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"CCKIDR2RUFQN487NNGT446W36"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:51 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag connect from cache
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"4INX1EOLCQZ99P2EH2XT6E28C"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:51 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag qs from cache
+verbose GET connect/1.8.1
+verbose raw, before any munging connect/1.8.1
+verbose url resolving [ 'https://registry.npmjs.org/', './connect/1.8.1' ]
+verbose url resolved https://registry.npmjs.org/connect/1.8.1
+verbose etag "CCKIDR2RUFQN487NNGT446W36"
+verbose GET qs/0.4.0
+verbose raw, before any munging qs/0.4.0
+verbose url resolving [ 'https://registry.npmjs.org/', './qs/0.4.0' ]
+verbose url resolved https://registry.npmjs.org/qs/0.4.0
+verbose etag "4INX1EOLCQZ99P2EH2XT6E28C"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"7MZNZPESAB7VHU2OR75BCFXOM"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:52 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag mime/1.2.4 from cache
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: '11b5fdaf29c2509255176b80ad520294f5de92b7',
+verbose bin dist     tarball: 'http://registry.npmjs.org/mime/-/mime-1.2.4.tgz' } ]
+silly testEngine { author: 
+silly testEngine    { name: 'Robert Kieffer',
+silly testEngine      email: 'robert@broofa.com',
+silly testEngine      url: 'http://github.com/broofa' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Benjamin Thomas',
+silly testEngine        email: 'benjamin@benjaminthomas.org',
+silly testEngine        url: 'http://github.com/bentomas' } ],
+silly testEngine   dependencies: {},
+silly testEngine   description: 'A comprehensive library for mime-type mapping',
+silly testEngine   devDependencies: { async_testing: '' },
+silly testEngine   keywords: [ 'util', 'mime' ],
+silly testEngine   main: 'mime.js',
+silly testEngine   name: 'mime',
+silly testEngine   repository: { url: 'git://github.com/bentomas/node-mime.git', type: 'git' },
+silly testEngine   version: '1.2.4',
+silly testEngine   _id: 'mime@1.2.4',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/.npm/mime/1.2.4/package/package.json
+verbose loadDefaults mime@1.2.4
+verbose from cache /home/jamie/UrlPipe/node_modules/express/node_modules/mime/package.json
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"CCKIDR2RUFQN487NNGT446W36"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:52 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag connect/1.8.1 from cache
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: 'a37e8c53d7a831d0821edb65634e27eb73b893de',
+verbose bin dist     tarball: 'http://registry.npmjs.org/connect/-/connect-1.8.1.tgz' } ]
+silly testEngine { name: 'connect',
+silly testEngine   version: '1.8.1',
+silly testEngine   description: 'High performance middleware framework',
+silly testEngine   keywords: [ 'framework', 'web', 'middleware', 'connect', 'rack' ],
+silly testEngine   repository: { type: 'git', url: 'git://github.com/senchalabs/connect.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca',
+silly testEngine      url: 'http://tjholowaychuk.com' },
+silly testEngine   dependencies: { qs: '>= 0.3.1', mime: '>= 0.0.1', formidable: '1.0.x' },
+silly testEngine   devDependencies: 
+silly testEngine    { expresso: '0.9.2',
+silly testEngine      koala: '0.1.2',
+silly testEngine      less: '1.1.1',
+silly testEngine      sass: '0.5.0',
+silly testEngine      markdown: '0.2.1',
+silly testEngine      ejs: '0.4.3',
+silly testEngine      should: '0.3.2' },
+silly testEngine   main: 'index',
+silly testEngine   engines: { node: '>= 0.4.1 < 0.7.0' },
+silly testEngine   _id: 'connect@1.8.1',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/.npm/connect/1.8.1/package/package.json
+verbose loadDefaults connect@1.8.1
+verbose from cache /home/jamie/UrlPipe/node_modules/express/node_modules/connect/package.json
+silly testEngine { name: 'formidable',
+silly testEngine   version: '1.0.8',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: 
+silly testEngine    { gently: '0.8.0',
+silly testEngine      findit: '0.1.1',
+silly testEngine      hashish: '0.0.4',
+silly testEngine      urun: '0.0.4',
+silly testEngine      utest: '0.0.3' },
+silly testEngine   directories: { lib: './lib' },
+silly testEngine   main: './lib/index',
+silly testEngine   scripts: { test: 'make test' },
+silly testEngine   engines: { node: '*' },
+silly testEngine   _id: 'formidable@1.0.8',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/UrlPipe/node_modules/express/node_modules/connect/node_modules/formidable/package.json
+verbose loadDefaults formidable@1.0.8
+verbose cache add [ 'qs', '>= 0.3.1' ]
+silly cache add: name, spec, args [ 'qs', '>= 0.3.1', [ 'qs', '>= 0.3.1' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+info addNamed [ 'qs', '>= 0.3.1' ]
+verbose cache add [ 'mime', '>= 0.0.1' ]
+silly cache add: name, spec, args [ 'mime', '>= 0.0.1', [ 'mime', '>= 0.0.1' ] ]
+verbose parsed url { pathname: '=', path: '=', href: '=' }
+info addNamed [ 'mime', '>= 0.0.1' ]
+verbose addNamed [ null, '>=0.0.1' ]
+verbose cache add [ 'formidable', '1.0.x' ]
+silly cache add: name, spec, args [ 'formidable', '1.0.x', [ 'formidable', '1.0.x' ] ]
+verbose parsed url { pathname: '1.0.x', path: '1.0.x', href: '1.0.x' }
+info addNamed [ 'formidable', '1.0.x' ]
+verbose addNamed [ null, '>=1.0.0- <1.1.0-' ]
+verbose GET mime
+verbose raw, before any munging mime
+verbose url resolving [ 'https://registry.npmjs.org/', './mime' ]
+verbose url resolved https://registry.npmjs.org/mime
+verbose etag "7MZNZPESAB7VHU2OR75BCFXOM"
+verbose GET formidable
+verbose raw, before any munging formidable
+verbose url resolving [ 'https://registry.npmjs.org/', './formidable' ]
+verbose url resolved https://registry.npmjs.org/formidable
+verbose etag "DTAL0TQTOL05CNSUJ29E8NB63"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"4INX1EOLCQZ99P2EH2XT6E28C"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:52 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag qs/0.4.0 from cache
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: '32343c3df5937fcd46e10bd0521b31a01b062705',
+verbose bin dist     tarball: 'http://registry.npmjs.org/qs/-/qs-0.4.0.tgz' } ]
+silly testEngine { name: 'qs',
+silly testEngine   description: 'querystring parser',
+silly testEngine   version: '0.4.0',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/visionmedia/node-querystring.git' },
+silly testEngine   devDependencies: { mocha: '*', should: '*' },
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca',
+silly testEngine      url: 'http://tjholowaychuk.com' },
+silly testEngine   main: 'index',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _id: 'qs@0.4.0',
+silly testEngine   dependencies: {},
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/.npm/qs/0.4.0/package/package.json
+verbose loadDefaults qs@0.4.0
+verbose from cache /home/jamie/UrlPipe/node_modules/express/node_modules/qs/package.json
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"7MZNZPESAB7VHU2OR75BCFXOM"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:54 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag mime from cache
+verbose GET mime/1.2.4
+verbose raw, before any munging mime/1.2.4
+verbose url resolving [ 'https://registry.npmjs.org/', './mime/1.2.4' ]
+verbose url resolved https://registry.npmjs.org/mime/1.2.4
+verbose etag "7MZNZPESAB7VHU2OR75BCFXOM"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"DTAL0TQTOL05CNSUJ29E8NB63"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:54 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag formidable from cache
+verbose GET formidable/1.0.8
+verbose raw, before any munging formidable/1.0.8
+verbose url resolving [ 'https://registry.npmjs.org/', './formidable/1.0.8' ]
+verbose url resolved https://registry.npmjs.org/formidable/1.0.8
+verbose etag "DTAL0TQTOL05CNSUJ29E8NB63"
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"7MZNZPESAB7VHU2OR75BCFXOM"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:55 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag mime/1.2.4 from cache
+silly get cb [ 304,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     etag: '"DTAL0TQTOL05CNSUJ29E8NB63"',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:55 GMT',
+silly get cb     'content-length': '0' } ]
+verbose etag formidable/1.0.8 from cache
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: '11b5fdaf29c2509255176b80ad520294f5de92b7',
+verbose bin dist     tarball: 'http://registry.npmjs.org/mime/-/mime-1.2.4.tgz' } ]
+verbose from cache /home/jamie/.npm/mime/1.2.4/package/package.json
+verbose bin dist [ '0.6-ares1.7.5-DEV-evundefined-openssl0.9.8k-v83.6.6.8-linux-ia32-2.6.32-35-generic',
+verbose bin dist   { shasum: 'ac119ceaf039a288d57649aeec38f03b6269bbce',
+verbose bin dist     tarball: 'http://registry.npmjs.org/formidable/-/formidable-1.0.8.tgz' } ]
+silly testEngine { name: 'formidable',
+silly testEngine   version: '1.0.8',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: 
+silly testEngine    { gently: '0.8.0',
+silly testEngine      findit: '0.1.1',
+silly testEngine      hashish: '0.0.4',
+silly testEngine      urun: '0.0.4',
+silly testEngine      utest: '0.0.3' },
+silly testEngine   directories: { lib: './lib' },
+silly testEngine   main: './lib/index',
+silly testEngine   scripts: { test: 'make test' },
+silly testEngine   engines: { node: '*' },
+silly testEngine   _id: 'formidable@1.0.8',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.106',
+silly testEngine   _nodeVersion: 'v0.6.2',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/jamie/.npm/formidable/1.0.8/package/package.json
+verbose loadDefaults formidable@1.0.8
+verbose from cache /home/jamie/UrlPipe/node_modules/express/node_modules/connect/node_modules/formidable/package.json
+info outdated updating [ [ '/home/jamie/UrlPipe', 'node-dbox', undefined, '0.1.0' ] ]
+verbose install(where, what) [ '/home/jamie/UrlPipe', [ 'node-dbox@0.1.0' ] ]
+verbose from cache /home/jamie/UrlPipe/package.json
+verbose from cache /home/jamie/UrlPipe/node_modules/ejs/package.json
+verbose from cache /home/jamie/UrlPipe/node_modules/dbox/package.json
+verbose from cache /home/jamie/UrlPipe/node_modules/express/package.json
+verbose from cache /home/jamie/UrlPipe/node_modules/request/package.json
+verbose from cache /home/jamie/UrlPipe/package.json
+verbose into /home/jamie/UrlPipe [ 'node-dbox@0.1.0' ]
+verbose cache add node-dbox@0.1.0
+verbose cache add [ 'node-dbox@0.1.0', null ]
+silly cache add: name, spec, args [ undefined, 'node-dbox@0.1.0', [ 'node-dbox@0.1.0', null ] ]
+verbose parsed url { pathname: 'node-dbox@0.1.0',
+verbose parsed url   path: 'node-dbox@0.1.0',
+verbose parsed url   href: 'node-dbox@0.1.0' }
+silly cache add: name, spec, args [ 'node-dbox', '0.1.0', [ 'node-dbox', '0.1.0' ] ]
+verbose parsed url { pathname: '0.1.0', path: '0.1.0', href: '0.1.0' }
+info addNamed [ 'node-dbox', '0.1.0' ]
+verbose addNamed [ '0.1.0', '0.1.0' ]
+verbose GET node-dbox/0.1.0
+verbose raw, before any munging node-dbox/0.1.0
+verbose url resolving [ 'https://registry.npmjs.org/', './node-dbox/0.1.0' ]
+verbose url resolved https://registry.npmjs.org/node-dbox/0.1.0
+silly get cb [ 404,
+silly get cb   { server: 'CouchDB/1.1.0 (Erlang OTP/R14B04)',
+silly get cb     date: 'Fri, 02 Dec 2011 21:20:56 GMT',
+silly get cb     'content-type': 'application/json',
+silly get cb     'content-length': '52',
+silly get cb     'cache-control': 'must-revalidate' } ]
+ERR! 404 'node-dbox' is not in the npm registry.
+ERR! 404 You could maybe bug the author to publish it
+ERR! 404 Maybe try 'npm search dbox'
+ERR! 404 Note that you can also install from a tarball or folder.
+ERR! 
+ERR! System Linux 2.6.32-35-generic
+ERR! command "node" "/usr/bin/npm" "update"
+ERR! cwd /home/jamie/UrlPipe
+ERR! node -v v0.6.2
+ERR! npm -v 1.0.106
+ERR! code E404
+verbose exit [ 1, true ]

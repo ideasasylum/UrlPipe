@@ -15,3 +15,11 @@ To Start
 	node urlpipe.js <dropbox app key> <dropbox app secret>
 
 You can find [the dropbox infomation here](https://www.dropbox.com/developers/apps)
+
+	export APP_KEY=<your app key>
+	export APP_SECRET=<your app secret>
+	node urlpipe.js
+
+Deployment to Heroku
+--------------------
+

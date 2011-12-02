@@ -2,8 +2,13 @@
 var app_key = process.argv[2]
   , app_secret = process.argv[3];
 
+if(app_key == undefined || app_secret == undefined){
+  app_key = process.env.APP_KEY;
+  app_secret = process.env.APP_SECRET;
+}
+
 if (app_key == undefined || app_secret == undefined) {
-  console.log("Usage: node urlpipe.js <dropbox key> <dropbox secret>");
+  console.log("Usage: node urlpipe.js <dropbox key> <dropbox secret>\n Or use the APP_KEY and APP_SECRET env variables");
   process.exit(1);
 }
 
