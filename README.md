@@ -23,3 +23,7 @@ You can find [the dropbox infomation here](https://www.dropbox.com/developers/ap
 Deployment to Heroku
 --------------------
 
+	heroku create --stack cedar
+	heroku config:add APP_KEY=$APP_KEY
+	heroku config:add APP_SECRET=$APP_SECRET
+	
