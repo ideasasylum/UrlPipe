@@ -114,5 +114,9 @@ function get_access_token(req, res){
   }
 }
 
-app.listen(3000);
+var port = process.env.PORT;
+if(port == undefined){
+  port = 3000;
+}
+app.listen(port);
 console.log('Dropbox browser running on port ' + app.address().port);
