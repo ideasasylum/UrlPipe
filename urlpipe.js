@@ -102,7 +102,7 @@ function get_auth_token(req, res){
   if(options.oauth_token && options.oauth_token_secret){
     return options;
   } else {
-    res.redirect('/start');
+    res.redirect('/');
     return null;
   }
 }
@@ -113,7 +113,7 @@ function get_access_token(req, res){
   if(options.oauth_token && options.oauth_token_secret){
     return options;
   } else {
-    res.redirect('/start');
+    res.redirect('/');
     return null;
   }
 }
