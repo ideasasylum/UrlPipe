@@ -123,4 +123,4 @@ if(port == undefined){
   port = 3000;
 }
 app.listen(port);
-console.log('Dropbox browser running on port ' + app.address().port);
+console.log('UrlPipe running on port ' + app.address().port);
