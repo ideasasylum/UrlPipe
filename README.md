@@ -26,4 +26,6 @@ Deployment to Heroku
 	heroku create --stack cedar
 	heroku config:add APP_KEY=$APP_KEY
 	heroku config:add APP_SECRET=$APP_SECRET
+	git push heroku master
+	heroku ps:scale web=1
 	
