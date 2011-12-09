@@ -48,12 +48,25 @@ function fetch_task(){
 	// connect to redis
 	var urlkey = redis.lpop('task_queue');
 	redis.hgetall(urlkey, function(error, task){
-		
+		run_task(task.url, task.filename, task.oauth_token, task.oauth_token_secret)
 	});	
 }
 
+function set_heroku_workers(num_workers, callback){
+  request.post({ json:'true', 
+                url: 'https://:'+heroku_key+'@api.heroku.com/apps/urlpipe/ps/scale?type=worker&qty=1'
+              },
+              function(status, reply){
+                console.log(reply.body);
+                callback(reply.body);
+              });  
+}
 
-// fetch the tasks, run them
-run_task(fetch_task);
+while(redis.llen('task_queue') > 0){
+  fetch_task();
+}
 
-// stop this worker
+// stop this worker by scaling the heroku workers to 0
+set_heroku_workers(0, function(workers){
+  console.log("Shut down workers");
+});

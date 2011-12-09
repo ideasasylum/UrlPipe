@@ -114,7 +114,7 @@ app.post('/upload', function(req, res){
       "url", req.body.url, 
       "filename", filename, 
       "oauth_token", options.oauth_token, 
-      "oauth_secret", options.oauth_token_secret]);
+      "oauth_token_secret", options.oauth_token_secret]);
 
     // Add this task to the Redis queue
     redis.rpush("task_queue", urlkey);
