@@ -71,6 +71,7 @@ app.get('/upload', function(req, res){
       var dropbox_name = reply.display_name;
 
       urlpipe.redis.llen('task_queue', function(err, length){
+        info_message = "Upload queued";
         res.render('upload_form.ejs', {
           locals: {
             name: dropbox_name,
