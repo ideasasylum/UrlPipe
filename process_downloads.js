@@ -6,6 +6,7 @@ function run_task(urlkey, url, filename, oauth_token, oauth_token_secret){
     // download the file (and follow redirects?) and pipe to dropbox
     request({url: url}).pipe(urlpipe.dropbox.put_request('/'+filename, options, function(status, reply){
         console.log(status);
+        console.log(reply);
         urlpipe.redis.hset(urlkey, 'status', 'completed', function(err, value){
           setTimeout(check_queue, 1000);
         });

@@ -36,10 +36,10 @@
     <div class="span9 offset1">
       <% var queue_label = ''; %>
       <% if(tasks.length > 0) { queue_label = "success" } %>
-      <span class="label <%= queue_label %>"><%= tasks.length %> queued</span><br />
+      <span class="label <%= queue_label %>"><%= tasks.length %> files</span><br />
       <table class="condensed-table"><tbody>
       <% for(t in tasks){ %>
-        <% labels = {'queued': 'success', 'complete': 'notice', 'failed': 'important'} %>
+        <% labels = {'queued': 'success', 'completed': 'notice', 'failed': 'important'} %>
         
         <tr>
           <td><%= tasks[t].url %></td>
