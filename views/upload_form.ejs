@@ -39,7 +39,7 @@
       <span class="label <%= queue_label %>"><%= tasks.length %> queued</span><br />
       <table class="condensed-table"><tbody>
       <% for(t in tasks){ %>
-        <% labels = {'queued': 'success', 'finished': 'notice', 'failed': 'important'} %>
+        <% labels = {'queued': 'success', 'complete': 'notice', 'failed': 'important'} %>
         
         <tr>
           <td><%= tasks[t].url %></td>

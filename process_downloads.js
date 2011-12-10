@@ -1,13 +1,13 @@
 var urlpipe = require('./urlpipe_utils');
 var request = require('request');
 
-function run_task(url, filename, oauth_token, oauth_token_secret){
+function run_task(urlkey, url, filename, oauth_token, oauth_token_secret){
 	var options = {oauth_token: oauth_token, oauth_token_secret: oauth_token_secret}
     // download the file (and follow redirects?) and pipe to dropbox
     request({url: url}).pipe(urlpipe.dropbox.put_request('/'+filename, options, function(status, reply){
-  //      console.log(status);
-  //      console.log(reply);
-        setTimeout(check_queue, 1000);
+        urlpipe.redis.hset(urlkey, 'status', 'completes', function(err, value){
+          setTimeout(check_queue, 1000);
+        });
 	}));
 } 
 
@@ -20,7 +20,7 @@ function fetch_task(){
       console.log(error);
       console.log(task);
 
-      run_task(task.url, task.filename, task.oauth_token, task.oauth_token_secret)
+      run_task(urlkey, task.url, task.filename, task.oauth_token, task.oauth_token_secret)
     }); 
   });
 }
