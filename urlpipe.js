@@ -1,4 +1,4 @@
-urlpipe = require('./urlpipe_utils');
+var urlpipe = require('./urlpipe_utils');
 
 var server = 'localhost:3000';
 if(process.env.NODE_ENV == 'production'){
@@ -70,21 +70,37 @@ app.get('/upload', function(req, res){
       }
       var dropbox_name = reply.display_name;
 
-      urlpipe.redis.llen('task_queue', function(err, length){
-        info_message = "Upload queued";
-        res.render('upload_form.ejs', {
-          locals: {
-            name: dropbox_name,
-            tasks: length,
-            error: error_message,
-            info: info_message
-          }
-        });        
-      });
-
-    });
+        var tasks = [];
+        var locals = {name: dropbox_name,
+                      error: error_message,
+                      info: info_message};
+        get_task(req, res, tasks, locals, 0);
+    }); // dropbox account
   }
 });
+
+function get_task(req, res, tasks, locals, i){
+  if(req.session.my_tasks != undefined && i <= req.session.my_tasks.length){
+    var task_id = req.session.my_tasks[i];
+    console.log("Fetching %s", task_id);
+    urlpipe.redis.hgetall(task_id, function(err, task){
+      console.log(err);
+      console.log(task);
+      tasks.push(task);
+      i = i+1;
+      get_task(req, res, tasks, locals, i);
+    });  
+  } else {
+    locals['tasks'] = tasks;
+    render(res, locals);
+  }
+}
+
+
+function render(res, locals){
+  console.log('rendering form' + locals);
+  res.render('upload_form.ejs', { locals: locals });                  
+}
 
 app.post('/upload', function(req, res){
   options = urlpipe.get_access_token(req, res);
@@ -100,30 +116,35 @@ app.post('/upload', function(req, res){
       // Add the task to Redis
       urlpipe.redis.hmset(urlkey, [
         "url", req.body.url, 
-        "filename", filename, 
+        "filename", filename,
+        "status", "queued",
         "oauth_token", options.oauth_token, 
         "oauth_token_secret", options.oauth_token_secret], function(err, status){
           console.log('Added task to redis');
           // Add this task to the Redis queue
           urlpipe.redis.rpush("task_queue", urlkey, function(err, num_tasks){
             console.log("There's now "+ num_tasks + " queued task");
+
+            // Store the task key in the session
+            if(req.session.my_tasks == undefined) {
+              req.session.my_tasks = [urlkey];
+            } else {
+              req.session.my_tasks.push(urlkey);
+            }
+            req.session.info_message = "Upload queued";
+            req.session.save();
+            console.dir(req.session);
+
             // ensure there's a Heroku worker running to handle this task
             urlpipe.set_heroku_workers(1, function(workers){
               console.log(workers);
               console.log("There's "+workers+" heroku workers running"); 
+              res.redirect('/upload');
             });
           });
       });
     });
-
-    res.redirect('/upload');
   }
-});
-
-app.get('/heroku_test', function(req, res){
-  urlpipe.set_heroku_workers(1, function(num_workers){
-    console.log(num_workers);
-  });
 });
 
 

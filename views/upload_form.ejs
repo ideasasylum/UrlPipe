@@ -16,5 +16,8 @@
 </form>
 
 <div>
-<%= tasks %> queued
+<%= tasks.length %> queued
+<% for(task in tasks){ %>
+  <%= task.url %> -> <%= task.filename %>: <%= task.status %>
+<% } %>
 </div>
