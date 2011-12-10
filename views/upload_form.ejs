@@ -1,23 +1,52 @@
-<% if(error) { %><div class="error"><%= error %></div><% } %>
-<% if(info) { %><div class="info"><%= info %></div><% } %>
+<div class="container">
+  <div class="row" style="margin-top: 20px">
+    <% if(error) { %><div class="alert-message error span6 offset3"><%= error %></div><% } %>
+    <% if(info) { %><div class="alert-message info span6 offset3"><%= info %></div><% } %>
+  </div>
+</div>
 
-<h2>Upload &hellip;</h2>
-<form method='post' action='/upload'>
-  <div>
-    <input type='text' name='url' id='url'/>
-  </div>
-  <h2>&hellip; to <%= name %>'s dropbox</h2>
-  <div id="submit">
-    <input type='submit' value='Upload' class='submit' />
-  </div>
-  <div>
-    <a href="https://www.dropbox.com/home/apps/urlpipe">View in Dropbox folder</a>
-  </div>
-</form>
 
-<div>
-<%= tasks.length %> queued
-<% for(task in tasks){ %>
-  <%= task.url %> -> <%= task.filename %>: <%= task.status %>
-<% } %>
+<div class="container">
+  <div class="row">
+    <div class="span3">
+      <h2>Upload &hellip;</h2>
+    </div>
+  </div>
+  <div class="row">  
+    <div class="span10 offset2">
+      <form method='post' action='/upload'>
+        <input type='text' name='url' id='url' class="span7" placeholder="URL" />
+        <input type='submit' value='Go!' class='primary btn span2' />
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span8 offset4"><h2>&hellip; to <%= name %>'s dropbox</h2></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row page-header span12" style="margin-top: 100px"/>
+  <div class="row">
+    <p class="span8 offset1">
+      <a href="https://www.dropbox.com/home/apps/urlpipe">View in your Dropbox folder</a> (Apps/urlpipe/)
+    </p>
+  </div>
+  <div class="row">
+    <div class="span9 offset1">
+      <% var queue_label = ''; %>
+      <% if(tasks.length > 0) { queue_label = "success" } %>
+      <span class="label <%= queue_label %>"><%= tasks.length %> queued</span><br />
+      <table class="condensed-table"><tbody>
+      <% for(t in tasks){ %>
+        <% labels = {'queued': 'success', 'finished': 'notice', 'failed': 'important'} %>
+        
+        <tr>
+          <td><%= tasks[t].url %></td>
+          <td><%= tasks[t].filename %></td>
+          <td><span class="label <%= labels[tasks[t].status] %>"><%= tasks[t].status %></span></td></tr>
+      <% } %>
+      </tbody></table>
+    </div>
+  </div>
 </div>

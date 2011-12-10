@@ -80,7 +80,7 @@ app.get('/upload', function(req, res){
 });
 
 function get_task(req, res, tasks, locals, i){
-  if(req.session.my_tasks != undefined && i <= req.session.my_tasks.length){
+  if(req.session.my_tasks != undefined && i < req.session.my_tasks.length){
     var task_id = req.session.my_tasks[i];
     console.log("Fetching %s", task_id);
     urlpipe.redis.hgetall(task_id, function(err, task){
@@ -98,7 +98,8 @@ function get_task(req, res, tasks, locals, i){
 
 
 function render(res, locals){
-  console.log('rendering form' + locals);
+  console.log('rendering form');
+  console.dir(locals);
   res.render('upload_form.ejs', { locals: locals });                  
 }
 
