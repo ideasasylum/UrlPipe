@@ -5,10 +5,7 @@ var fs = require('fs');
 
 function run_task(urlkey, url, filename, oauth_token, oauth_token_secret){
 	var options = {oauth_token: oauth_token, oauth_token_secret: oauth_token_secret}
-    // download the file (and follow redirects?) and pipe to dropbox
-    //FIXME: If the download is chunked encoding, the upload to dropbox will fail. I need to catch this
-    //       and handle it correctly. It currently kills the process :(
-    // Perhaps change to download to a temp file and the upload from there
+    // Download to a temp file and the upload from there
     temp.open({prefix: 'urlpipe_download_', suffix: '_'+filename}, function(err, temp_file){
     console.log(temp_file.path);
     var pipe_to_file = request({url: url}).pipe(fs.WriteStream(temp_file.path));
