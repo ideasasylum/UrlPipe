@@ -4,10 +4,17 @@ var request = require('request');
 function run_task(urlkey, url, filename, oauth_token, oauth_token_secret){
 	var options = {oauth_token: oauth_token, oauth_token_secret: oauth_token_secret}
     // download the file (and follow redirects?) and pipe to dropbox
+    //FIXME: If the download is chunked encoding, the upload to dropbox will fail. I need to catch this
+    //       and handle it correctly. It currently kills the process :(
+    // Perhaps change to download to a temp file and the upload from there 
     request({url: url}).pipe(urlpipe.dropbox.put_request(filename, options, function(status, reply){
         console.log(status);
         console.log(reply);
-        urlpipe.redis.hset(urlkey, 'status', 'completed', function(err, value){
+        var task_status = 'completed';
+        if(reply.statusCode == 200) {
+          task_status = 'failed';
+        }
+        urlpipe.redis.hmset(urlkey, ['status', task_status, 'error', reply.statusCode], function(err, value){
           setTimeout(check_queue, 1000);
         });
 	}));
