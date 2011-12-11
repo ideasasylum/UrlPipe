@@ -86,8 +86,14 @@ function get_task(req, res, tasks, locals, i){
     urlpipe.redis.hgetall(task_id, function(err, task){
       console.log(err);
       console.log(task);
-      tasks.push(task);
-      i = i+1;
+      // if the task no longer exists (because old tasks expire), remove it
+      if(err != undefined){
+        req.session.my_tasks = req.session.my_tasks.splice(i, i);
+        req.session.save();
+      } else {
+        tasks.push(task);
+        i = i+1;
+      }
       get_task(req, res, tasks, locals, i);
     });  
   } else {
