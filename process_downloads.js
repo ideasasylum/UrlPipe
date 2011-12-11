@@ -13,6 +13,11 @@ function run_task(urlkey, url, filename, oauth_token, oauth_token_secret){
       var dropbox_upload = urlpipe.dropbox.put_request(filename, options, function(status, reply){
         console.log(status);
         console.log(reply);
+
+        // Remove the temp file
+        fs.unlink(temp_file.path);
+
+        // Mark the task as completed
         var task_status = 'completed';
         if(reply.statusCode != 200) {
           task_status = 'failed';
