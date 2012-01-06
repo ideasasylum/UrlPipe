@@ -13,22 +13,22 @@ if(process.env.SESSION_SECRET){
 ///////////////////////////////////////
 var request = require('request');
 var express = require('express');
+var RedisStore = require('connect-redis')(express);
 var app = express.createServer();
 var url = require('url');
-var RedisStore = require('connect-redis')(express);
 
 urlpipe.redis.on("error", function (err) {
     console.log("Error " + err);
 });
 
-
+var rtg = urlpipe.get_rtg_credentials();
 // Create and configure an Express server.
 app.configure(function () {
   app.use(express.static(__dirname + '/public'))
   , app.use(express.logger())
   , app.use(express.bodyParser())
   , app.use(express.cookieParser())
-  , app.use(express.session({ secret: 'gmfdoejrgnr', store: new RedisStore} ));
+  , app.use(express.session({ secret: 'gmfdoejrgnr', store: new RedisStore(rtg)}));
 });
 
 

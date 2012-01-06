@@ -16,12 +16,13 @@ if (app_key == undefined || app_secret == undefined) {
 
 // Create the Redis connection
 var redis = null;
+var redisStore = null;
 if(process.env.REDISTOGO_URL == undefined){
   redis = require('redis').createClient();
 } else {
-  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+  rtg = get_rtg_credentials();
   redis = require("redis").createClient(rtg.port, rtg.hostname);
-  redis.auth(rtg.auth.split(":")[1]);
+  redis.auth(rtg.pass);
 }
 
 // Dropbox client
@@ -39,6 +40,20 @@ this.app_secret = app_secret;
 this.heroku_key = heroku_key;
 this.dropbox = dropbox;
 this.redis = redis;
+
+this.get_rtg_credentials = function(){
+  credentials = {};
+  if(process.env.REDISTOGO_URL == undefined){
+    return credentials;
+  } else {
+    var rtg = require("url").parse(process.env.REDISTOGO_URL);
+    var auth = rtg.auth.split(":");
+    credentials.host = rtg.hostname;
+    credentials.port = rtg.port;
+    credentials.db = auth[0];
+    credentials.pass = auth[1];  
+}
+}
 
 this.set_heroku_workers = function(num_workers, callback){
   request.post({ json:'true', 
