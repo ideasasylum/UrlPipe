@@ -43,16 +43,15 @@ this.redis = redis;
 
 this.get_rtg_credentials = function(){
   credentials = {};
-  if(process.env.REDISTOGO_URL == undefined){
-    return credentials;
-  } else {
+  if(process.env.REDISTOGO_URL != undefined){
     var rtg = require("url").parse(process.env.REDISTOGO_URL);
     var auth = rtg.auth.split(":");
     credentials.host = rtg.hostname;
     credentials.port = rtg.port;
     credentials.db = auth[0];
     credentials.pass = auth[1];  
-}
+  }
+  return credentials;
 }
 
 this.set_heroku_workers = function(num_workers, callback){
