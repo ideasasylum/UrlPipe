@@ -22,6 +22,7 @@ urlpipe.redis.on("error", function (err) {
 });
 
 var rtg = urlpipe.get_rtg_credentials();
+console.log(rtg);
 // Create and configure an Express server.
 app.configure(function () {
   app.use(express.static(__dirname + '/public'))
@@ -33,7 +34,7 @@ app.configure(function () {
 
 
 app.get('/', function(req, res) {
-  res.render('home.ejs');                  
+  res.render('home.ejs', {});                  
 });
 
 app.get('/start', function(req, res) {
