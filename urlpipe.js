@@ -2,7 +2,12 @@ var urlpipe = require('./urlpipe_utils');
 
 var server = 'localhost:3000';
 if(process.env.NODE_ENV == 'production'){
-  server = 'urlpipe.heroku.com'
+  server = 'urlpipe.com'
+}
+
+var session_secret = 'blahblahblah';
+if(process.env.SESSION_SECRET){
+  session_secret = process.env.SESSION_SECRET;
 }
 
 ///////////////////////////////////////
@@ -10,7 +15,7 @@ var request = require('request');
 var express = require('express');
 var app = express.createServer();
 var url = require('url');
-
+var RedisStore = require('connect-redis')(express);
 
 urlpipe.redis.on("error", function (err) {
     console.log("Error " + err);
@@ -23,11 +28,15 @@ app.configure(function () {
   , app.use(express.logger())
   , app.use(express.bodyParser())
   , app.use(express.cookieParser())
-  , app.use(express.session({ secret: 'gmfdoejrgnr'} ));
+  , app.use(express.session({ secret: 'gmfdoejrgnr', store: new RedisStore} ));
 });
 
 
 app.get('/', function(req, res) {
+  res.render('home.ejs');                  
+});
+
+app.get('/start', function(req, res) {
   urlpipe.dropbox.request_token(function(status, reply){
     console.log("Request token callback");
     console.log(status);

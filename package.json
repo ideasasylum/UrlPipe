@@ -2,12 +2,13 @@
 	"name": "UrlPipe",
 	"version": "0.0.1",
 	"dependencies": {
-		"express": 	">= 2.5.1",
-		"request": 	">= 2.2.1",
-		"ejs": 		">= 0.5.0",
-		"node-dbox": "https://github.com/hopeless/node-dbox/tarball/master",
-		"redis":	">= 0.7.1",
-		"temp":		">= 0.2.0"
+		"express": 			">= 2.5.1",
+		"request": 			">= 2.2.1",
+		"ejs": 				">= 0.5.0",
+		"node-dbox": 		"https://github.com/hopeless/node-dbox/tarball/master",
+		"redis":			">= 0.7.1",
+		"redis-connect":	">= 1.2.0",
+		"temp":				">= 0.2.0"
 	},
 	"engine": "node >= 0.4.7"
 }
