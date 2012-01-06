@@ -75,7 +75,7 @@ if(process.env.REDISTOGO_URL == undefined){
   redis = require('redis').createClient();
 } else {
   rtg = this.get_rtg_credentials();
-  redis = require("redis").createClient(rtg.port, rtg.hostname);
+  redis = require("redis").createClient(rtg.port, rtg.host);
   redis.auth(rtg.pass);
 }
 
