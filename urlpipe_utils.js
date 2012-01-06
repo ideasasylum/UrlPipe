@@ -1,46 +1,3 @@
-// Read dropbox key and secret, and heroku app key from the command line.
-var app_key = process.argv[2]
-var app_secret = process.argv[3]
-var heroku_key = process.argv[4]
-
-if(app_key == undefined || app_secret == undefined){
-  app_key = process.env.APP_KEY;
-  app_secret = process.env.APP_SECRET;
-  heroku_key = process.env.HEROKU_KEY;
-}
-
-if (app_key == undefined || app_secret == undefined) {
-  console.log("Usage: node urlpipe.js <dropbox key> <dropbox secret> <heroku_key>\n Or use the APP_KEY, APP_SECRET and HEROKU_KEY env variables");
-  process.exit(1);
-}
-
-// Create the Redis connection
-var redis = null;
-var redisStore = null;
-if(process.env.REDISTOGO_URL == undefined){
-  redis = require('redis').createClient();
-} else {
-  rtg = get_rtg_credentials();
-  redis = require("redis").createClient(rtg.port, rtg.hostname);
-  redis.auth(rtg.pass);
-}
-
-// Dropbox client
-var dbox = require('dbox');
-var request = require('request');
-var dropbox = dbox.createClient({
-  app_key    : app_key,             // required
-  app_secret : app_secret,          // required
-  root       : "sandbox"            // optional (defaults to sandbox)
-});
-
-
-this.app_key = app_key;
-this.app_secret = app_secret;
-this.heroku_key = heroku_key;
-this.dropbox = dropbox;
-this.redis = redis;
-
 this.get_rtg_credentials = function(){
   credentials = {};
   if(process.env.REDISTOGO_URL != undefined){
@@ -93,3 +50,48 @@ this.get_access_token = function(req, res){
     return null;
   }
 }
+
+
+// Read dropbox key and secret, and heroku app key from the command line.
+var app_key = process.argv[2]
+var app_secret = process.argv[3]
+var heroku_key = process.argv[4]
+
+if(app_key == undefined || app_secret == undefined){
+  app_key = process.env.APP_KEY;
+  app_secret = process.env.APP_SECRET;
+  heroku_key = process.env.HEROKU_KEY;
+}
+
+if (app_key == undefined || app_secret == undefined) {
+  console.log("Usage: node urlpipe.js <dropbox key> <dropbox secret> <heroku_key>\n Or use the APP_KEY, APP_SECRET and HEROKU_KEY env variables");
+  process.exit(1);
+}
+
+// Create the Redis connection
+var redis = null;
+var redisStore = null;
+if(process.env.REDISTOGO_URL == undefined){
+  redis = require('redis').createClient();
+} else {
+  rtg = this.get_rtg_credentials();
+  redis = require("redis").createClient(rtg.port, rtg.hostname);
+  redis.auth(rtg.pass);
+}
+
+// Dropbox client
+var dbox = require('dbox');
+var request = require('request');
+var dropbox = dbox.createClient({
+  app_key    : app_key,             // required
+  app_secret : app_secret,          // required
+  root       : "sandbox"            // optional (defaults to sandbox)
+});
+
+
+this.app_key = app_key;
+this.app_secret = app_secret;
+this.heroku_key = heroku_key;
+this.dropbox = dropbox;
+this.redis = redis;
+
