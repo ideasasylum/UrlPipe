@@ -1,4 +1,5 @@
 var urlpipe = require('./urlpipe_utils');
+_ = require('./underscore-min');
 
 var server = 'localhost:3000';
 if(process.env.NODE_ENV == 'production'){
@@ -85,6 +86,8 @@ app.get('/upload', function(req, res){
                     info: info_message,
                     tasks: tasks};
 
+console.dir(req.session.my_tasks);
+      
       // Check if all the tasks are still valid (task keys expire after 2hrs)
       var mexists = urlpipe.redis.multi();
       for(i in req.session.my_tasks){
@@ -92,14 +95,16 @@ app.get('/upload', function(req, res){
       }
       mexists.exec(function(err, exists){
         // Remove the expired tasks from the session
-        var j;
-        for(j=0; j<exists.length(); j++){
-          req.session.my_tasks = req.session.my_tasks.splice(i, i);
-        }
+        req.session.my_tasks = _.filter(req.session.my_tasks, function(task, index){ return exists[index] });
         req.session.save();
 
         // Get the tasks
         var multi = urlpipe.redis.multi();
+        for(i in req.session.my_tasks){
+          var download = req.session.my_tasks[i];
+          console.log("Fetching %s", download);
+          multi.hgetall(download);
+        }
         multi.exec(function(err, replies){
           console.log(err);
           console.log(replies);
@@ -110,15 +115,9 @@ app.get('/upload', function(req, res){
             }
           }
           console.log('rendering form');
-          console.dir(locals);
           res.render('upload_form.ejs', { locals: locals }); 
         });
       });
-      for(i in req.session.my_tasks){
-        var download = req.session.my_tasks[i];
-        console.log("Fetching %s", download);
-        multi.hgetall(download);
-      }
     }); // dropbox account
   }
 });
@@ -156,12 +155,16 @@ app.post('/upload', function(req, res){
             req.session.save();
             console.dir(req.session);
 
-            // ensure there's a Heroku worker running to handle this task
-            urlpipe.set_heroku_workers(1, function(workers){
-              console.log(workers);
-              console.log("There's "+workers+" heroku workers running"); 
+            // ensure there's a Heroku worker running to handle this task (in production)
+            if(process.env.NODE_ENV == 'production'){
+              urlpipe.set_heroku_workers(1, function(workers){
+                console.log(workers);
+                console.log("There's "+workers+" heroku workers running"); 
+                res.redirect('/upload');
+              });
+            } else {
               res.redirect('/upload');
-            });
+            }
           });
       });
     });

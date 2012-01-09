@@ -5,15 +5,11 @@ var fs = require('fs');
 
 function run_task(urlkey, url, filename, oauth_token, oauth_token_secret){
 	var options = {oauth_token: oauth_token, oauth_token_secret: oauth_token_secret}
-    // Download to a temp file and the upload from there
+    // Download to a temp file and then upload from there
     temp.open({prefix: 'urlpipe_download_', suffix: '_'+filename}, function(err, temp_file){
-    console.log(temp_file.path);
     var pipe_to_file = request({url: url}).pipe(fs.WriteStream(temp_file.path));
     pipe_to_file.end = function() {
       var dropbox_upload = urlpipe.dropbox.put_request(filename, options, function(status, reply){
-        console.log(status);
-        console.log(reply);
-
         // Remove the temp file
         fs.unlink(temp_file.path);
 
@@ -24,15 +20,22 @@ function run_task(urlkey, url, filename, oauth_token, oauth_token_secret){
         }
         var multi = urlpipe.redis.multi();
         multi.hmset(urlkey, {'status': task_status, 'error': reply.statusCode});
-        // Expire the Redis key in 2hours
-        multi.expire(2*60*60*1000);
+        if(task_status = 'completed'){
+          // Expire the Redis key in 2hours for successful 
+          multi.expire(urlkey, 2*60*60*1000);
+        } else {
+          // Store failed transfers in a list for analysis
+          multi.lpush('failed_tasks', urlkey);
+        }
+
+        // Check the queue again in 1 sec
         multi.exec(function(err, value){
-          setTimeout(check_queue, 1000);  
+          process.nextTick(check_queue);  
         });        
       });
-      dropbox_upload.headers['Content-Length'] = fs.statSync(temp_file.path).size;
-      console.dir(dropbox_upload);
 
+      // Make sure we tell Dropbox how big the file will be
+      dropbox_upload.headers['Content-Length'] = fs.statSync(temp_file.path).size;
       fs.ReadStream(temp_file.path).pipe(dropbox_upload);
     }
 	});
@@ -43,11 +46,13 @@ function fetch_task(){
 	urlpipe.redis.lpop('task_queue', function(err, urlkey){
     console.log('Found urlkey: '+urlkey);
     urlpipe.redis.hgetall(urlkey, function(error, task){
-      console.log('Processing task %s', urlkey);
-      console.log(error);
-      console.log(task);
+      if(task){
+        console.log('Processing task %s: \n %s', urlkey, task);
 
-      run_task(urlkey, task.url, task.filename, task.oauth_token, task.oauth_token_secret)
+        run_task(urlkey, task.url, task.filename, task.oauth_token, task.oauth_token_secret)
+      } else {
+        console.log('Skipping %s', urlkey);
+      }
     }); 
   });
 }
@@ -69,4 +74,4 @@ function check_queue(){
   });
 }
 
-setTimeout(check_queue, 1000);
+process.nextTick(check_queue);
