@@ -84,28 +84,41 @@ app.get('/upload', function(req, res){
                     error: error_message,
                     info: info_message,
                     tasks: tasks};
-      var multi = urlpipe.redis.multi();
+
+      // Check if all the tasks are still valid (task keys expire after 2hrs)
+      var mexists = urlpipe.redis.multi();
+      for(i in req.session.my_tasks){
+        mexists.exists(req.session.my_tasks[i]);
+      }
+      mexists.exec(function(err, exists){
+        // Remove the expired tasks from the session
+        var j;
+        for(j=0; j<exists.length(); j++){
+          req.session.my_tasks = req.session.my_tasks.splice(i, i);
+        }
+        req.session.save();
+
+        // Get the tasks
+        var multi = urlpipe.redis.multi();
+        multi.exec(function(err, replies){
+          console.log(err);
+          console.log(replies);
+          if(err != undefined){
+          } else {
+            for(reply in replies){
+              tasks.push(replies[reply]);
+            }
+          }
+          console.log('rendering form');
+          console.dir(locals);
+          res.render('upload_form.ejs', { locals: locals }); 
+        });
+      });
       for(i in req.session.my_tasks){
         var download = req.session.my_tasks[i];
         console.log("Fetching %s", download);
         multi.hgetall(download);
       }
-      multi.exec(function(err, replies){
-        console.log(err);
-        console.log(replies);
-        if(err != undefined){
-          // Remove the expired tasks from the session!
-          //req.session.my_tasks = req.session.my_tasks.splice(i, i);
-          //req.session.save();
-        } else {
-          for(reply in replies){
-            tasks.push(replies[reply]);
-          }
-        }
-        console.log('rendering form');
-        console.dir(locals);
-        res.render('upload_form.ejs', { locals: locals }); 
-      });
     }); // dropbox account
   }
 });
