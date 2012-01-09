@@ -22,12 +22,13 @@ function run_task(urlkey, url, filename, oauth_token, oauth_token_secret){
         if(reply.statusCode != 200) {
           task_status = 'failed';
         }
-        urlpipe.redis.hmset(urlkey, {'status': task_status, 'error': reply.statusCode}, function(err, value){
-          // Expire the Redis key in 2hours
-          urlpipe.redis.expire(2*60*60*1000, function(err, value){
-            setTimeout(check_queue, 1000);  
-          });
-        });
+        var multi = urlpipe.redis.multi();
+        multi.hmset(urlkey, {'status': task_status, 'error': reply.statusCode});
+        // Expire the Redis key in 2hours
+        multi.expire(2*60*60*1000);
+        multi.exec(function(err, value){
+          setTimeout(check_queue, 1000);  
+        });        
       });
       dropbox_upload.headers['Content-Length'] = fs.statSync(temp_file.path).size;
       console.dir(dropbox_upload);

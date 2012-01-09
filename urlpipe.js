@@ -79,45 +79,36 @@ app.get('/upload', function(req, res){
         error_message = "Error connecting to Dropbox:"+status;
       }
       var dropbox_name = reply.display_name;
-
-        var tasks = [];
-        var locals = {name: dropbox_name,
-                      error: error_message,
-                      info: info_message};
-        get_task(req, res, tasks, locals, 0);
+      var tasks = [];
+      var locals = {name: dropbox_name,
+                    error: error_message,
+                    info: info_message,
+                    tasks: tasks};
+      var multi = urlpipe.redis.multi();
+      for(i in req.session.my_tasks){
+        var download = req.session.my_tasks[i];
+        console.log("Fetching %s", download);
+        multi.hgetall(download);
+      }
+      multi.exec(function(err, replies){
+        console.log(err);
+        console.log(replies);
+        if(err != undefined){
+          // Remove the expired tasks from the session!
+          //req.session.my_tasks = req.session.my_tasks.splice(i, i);
+          //req.session.save();
+        } else {
+          for(reply in replies){
+            tasks.push(replies[reply]);
+          }
+        }
+        console.log('rendering form');
+        console.dir(locals);
+        res.render('upload_form.ejs', { locals: locals }); 
+      });
     }); // dropbox account
   }
 });
-
-function get_task(req, res, tasks, locals, i){
-  if(req.session.my_tasks != undefined && i < req.session.my_tasks.length){
-    var task_id = req.session.my_tasks[i];
-    console.log("Fetching %s", task_id);
-    urlpipe.redis.hgetall(task_id, function(err, task){
-      console.log(err);
-      console.log(task);
-      // if the task no longer exists (because old tasks expire), remove it
-      if(err != undefined){
-        req.session.my_tasks = req.session.my_tasks.splice(i, i);
-        req.session.save();
-      } else {
-        tasks.push(task);
-        i = i+1;
-      }
-      get_task(req, res, tasks, locals, i);
-    });  
-  } else {
-    locals['tasks'] = tasks;
-    render(res, locals);
-  }
-}
-
-
-function render(res, locals){
-  console.log('rendering form');
-  console.dir(locals);
-  res.render('upload_form.ejs', { locals: locals });                  
-}
 
 app.post('/upload', function(req, res){
   options = urlpipe.get_access_token(req, res);
