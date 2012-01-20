@@ -5,6 +5,8 @@ A really simple node.js app which uses your Dropbox account to store the results
 
 It now has a Redis backend and a simple worker process which actually does the file transfer to avoid locking up the web dyno. To keep costs low, the worker process is only started on demand and shuts down after all the download tasks have finished.
 
+Try it now at [urlpipe.com](http://urlpipe.com)
+
 To Install
 ----------
 
@@ -29,6 +31,7 @@ Deployment to Heroku
 	heroku config:add APP_KEY=$APP_KEY
 	heroku config:add APP_SECRET=$APP_SECRET
 	heroku config:add HEROKU_KEY=<your heroku api key>
+	heroku config:add SESSION_SECRET=<whatever>
 	heroku addons:add redistogo
 	git push heroku master
 	heroku ps:scale web=1
