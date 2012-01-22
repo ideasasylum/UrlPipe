@@ -35,7 +35,7 @@ this.get_auth_token = function(req, res){
   if(options.oauth_token && options.oauth_token_secret){
     return options;
   } else {
-    res.redirect('/');
+    res.redirect('/start');
     return null;
   }
 }
@@ -46,7 +46,7 @@ this.get_access_token = function(req, res){
   if(options.oauth_token && options.oauth_token_secret){
     return options;
   } else {
-    res.redirect('/');
+    res.redirect('/start');
     return null;
   }
 }
