@@ -1,12 +1,4 @@
 <div class="container">
-  <div class="row" style="margin-top: 20px">
-    <% if(error) { %><div class="alert-message error span6 offset3"><%= error %></div><% } %>
-    <% if(info) { %><div class="alert-message info span6 offset3"><%= info %></div><% } %>
-  </div>
-</div>
-
-
-<div class="container">
   <div class="row">
     <div class="span3">
       <h2 class="tk-lobster">UrlPipe &hellip;</h2>
@@ -25,26 +17,32 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="row"">
+    <% if(error) { %><div class="alert alert-error span6 offset2"><%= error %></div><% } %>
+    <% if(info) { %><div class="alert alert-info span6 offset2"><%= info %></div><% } %>
+  </div>
+</div>
+
 <% var queue_label = ''; %>
 <% if(tasks.length > 0) { queue_label = "success" %>
 <div class="container">
-  <div class="row span12" style="margin-top: 100px"/>
+  <div class="row span12" style="margin-top: 60px"/>
   <div class="row">
-    <p class="span8 offset1">
+    <p class="span8">
       <a href="https://www.dropbox.com/home/apps/urlpipe">View in your Dropbox folder</a> (Apps/urlpipe/)
     </p>
   </div>
-  <div class="row page-header">
+  <div class="row">
     <div class="span9">
-      <span class="label <%= queue_label %>"><%= tasks.length %> files</span><br />
-      <table class="condensed-table"><tbody>
+      <span class="label label-<%= queue_label %>"><%= tasks.length %> files</span><br />
+      <table class="table-condensed"><tbody>
       <% for(t in tasks){ %>
         <% labels = {'queued': 'success', 'completed': 'notice', 'failed': 'important'} %>
-        
         <tr>
-          <td><span class="label <%= labels[tasks[t].status] %>"><%= tasks[t].status %></span></td></tr>
+          <td><span class="label label-<%= labels[tasks[t].status] %>"><%= tasks[t].status %></span></td>
           <td><%= tasks[t].filename %></td>
-          <td><%= tasks[t].url %></td>
+          <td><%= tasks[t].url %></td></tr>
       <% } %>
     </tbody></table>
     </div>
