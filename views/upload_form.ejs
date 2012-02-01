@@ -15,8 +15,8 @@
   <div class="row">  
     <div class="span10 offset2">
       <form method='post' action='/upload'>
-        <input type='text' name='url' id='url' class="span7" placeholder="URL" />
-        <input type='submit' value='Go!' class='primary btn span2' />
+        <input type='text' name='url' id='url' class="span6" placeholder="URL" />
+        <input type='submit' value='Go!' class='btn-primary span2' />
       </form>
     </div>
   </div>
@@ -42,9 +42,9 @@
         <% labels = {'queued': 'success', 'completed': 'notice', 'failed': 'important'} %>
         
         <tr>
-          <td><%= tasks[t].url %></td>
-          <td><%= tasks[t].filename %></td>
           <td><span class="label <%= labels[tasks[t].status] %>"><%= tasks[t].status %></span></td></tr>
+          <td><%= tasks[t].filename %></td>
+          <td><%= tasks[t].url %></td>
       <% } %>
       </tbody></table>
     </div>
