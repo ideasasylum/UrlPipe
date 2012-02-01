@@ -21,21 +21,21 @@
     </div>
   </div>
   <div class="row">
-    <div class="span8 offset4"><h2>&hellip; to <%= name %>'s dropbox</h2></div>
+    <div class="span8 offset2"><h2>&hellip; to <%= name %>'s dropbox</h2></div>
   </div>
 </div>
 
+<% var queue_label = ''; %>
+<% if(tasks.length > 0) { queue_label = "success" %>
 <div class="container">
-  <div class="row page-header span12" style="margin-top: 100px"/>
+  <div class="row span12" style="margin-top: 100px"/>
   <div class="row">
     <p class="span8 offset1">
       <a href="https://www.dropbox.com/home/apps/urlpipe">View in your Dropbox folder</a> (Apps/urlpipe/)
     </p>
   </div>
-  <div class="row">
+  <div class="row page-header">
     <div class="span9">
-      <% var queue_label = ''; %>
-      <% if(tasks.length > 0) { queue_label = "success" } %>
       <span class="label <%= queue_label %>"><%= tasks.length %> files</span><br />
       <table class="condensed-table"><tbody>
       <% for(t in tasks){ %>
@@ -46,7 +46,8 @@
           <td><%= tasks[t].filename %></td>
           <td><%= tasks[t].url %></td>
       <% } %>
-      </tbody></table>
+    </tbody></table>
     </div>
   </div>
 </div>
+<% } %>
